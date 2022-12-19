@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+
+      <p>Hero Information</p>
+      <p>Hero ID  {{hero.id}}</p>
+      <p> Data Binding of Hero Name</p>
+      <input type="text" name="hero_name" [(ngModel)]="hero.name" >
+      <p> Hero Name : {{hero.name | uppercase }} </p>
+
+      <h2>mock heros</h2>
+      <ul class="list-group" *ngFor="let hero of heroes" style="font-size: 25px" >
+        <li class="list-group-item" > {{hero.id}}</li>
+        <li class="list-group-item" > {{hero.name | uppercase}} </li>
+        <button
+          class="btn btn-primary"
+          [class.selected]="hero=== selectedHero"
+          (click)="onSelect(hero)" >get Detials</button>
+
+      </ul>
+    </div>
+    <div class="col-md-7">
+
+      <div>
+        <app-hero-details [hero]="selectedHero" ></app-hero-details>
+      </div>
+
+    </div>
+  </div>
+</div>
+

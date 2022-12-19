@@ -1,0 +1,29 @@
+<div class="container">
+  <app-cookpit
+    (serverCreated)="onServerAdded($event)"
+    (bluePrintCreated)="onBlueprintAdded($event)"
+  ></app-cookpit>
+  <hr>
+  <div class="row">
+<!--    print all the server components-->
+<!--    [element]="elementServer" -> custom binding -->
+
+
+<!--  *ngFor="let elementServer of serverElements"-->
+<!--  [element]="elementServer"-->
+
+<!--this is another way of getting element from another components-->
+<app-server-element
+  *ngFor="let elementServer of serverElements"
+  [servElement]="elementServer"
+
+
+
+></app-server-element>
+
+  </div>
+</div>
+
+<div class="container">
+  <app-entity></app-entity>
+</div>
