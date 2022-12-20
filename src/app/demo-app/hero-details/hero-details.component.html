@@ -1,14 +1,36 @@
-<h2>Hero details components</h2>
+<h2>Hero Details </h2>
 <div class="container">
   <div *ngIf="hero" >
-    <h2>{{hero.name | uppercase}} Details</h2>
+<!--    <h2>{{hero.name | uppercase}} Details</h2>-->
     <div>
-      <label> Hero Name : </label>
-      <input
-        type="text"
-        id="hero-name"
-        placeholder="hero Name"
-        [(ngModel)]="hero.name"
-      >
+
+      <div>
+        <div class="card text-center">
+          <div class="card-header">
+            <h2>{{hero.name}}</h2>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"> Hero ID : {{hero.id}}</h5>
+            <div class="card-text">
+              <label>Change the Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="hero-name"
+                placeholder="Change hero name"
+                [(ngModel)]="hero.name"
+
+              >
+            </div>
+            <button (click)="goBack()" class="btn btn-primary">Hero List</button>
+          </div>
+          <div class="card-footer text-muted">
+            2 days ago
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
 </div>

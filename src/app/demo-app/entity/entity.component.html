@@ -9,23 +9,28 @@
       <p> Hero Name : {{hero.name | uppercase }} </p>
 
       <h2>mock heros</h2>
-      <ul class="list-group" *ngFor="let hero of heroes" style="font-size: 25px" >
-        <li class="list-group-item" > {{hero.id}}</li>
-        <li class="list-group-item" > {{hero.name | uppercase}} </li>
-        <button
-          class="btn btn-primary"
-          [class.selected]="hero=== selectedHero"
-          (click)="onSelect(hero)" >get Detials</button>
+      <li class="list-group" *ngFor="let hero of heroes" style="font-size: 25px" >
+          <a routerLink="/detail/{{hero.id}}" >
+          <span class="badge" >{{hero.id}}</span> {{hero.name}}
+          </a>
 
-      </ul>
+<!--        <li class="list-group-item" > {{hero.id}}</li>-->
+<!--        <li class="list-group-item" > {{hero.name | uppercase}} </li>-->
+<!--        -->
+<!--        <button-->
+<!--          class="btn btn-primary"-->
+<!--          [class.selected]="hero=== selectedHero"-->
+<!--          (click)="onSelect(hero)" >get Detials</button>-->
+
+      </li>
     </div>
-    <div class="col-md-7">
+<!--    <div class="col-md-7">-->
 
-      <div>
-        <app-hero-details [hero]="selectedHero" ></app-hero-details>
-      </div>
+<!--      <div>-->
+<!--        <app-hero-details [hero]="selectedHero" ></app-hero-details>-->
+<!--      </div>-->
 
-    </div>
+<!--    </div>-->
   </div>
 </div>
 

@@ -18,16 +18,40 @@
 import { Injectable } from '@angular/core';
 import {Hero} from "./hero";
 import { HEROES } from "./mock.hero";
+import { Observable, of } from 'rxjs'
+import {MessageService} from "./services/message.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
+  // This is an example of a typical service-in-service scenario in which you inject
+  // the MessageService into the HeroService which is injected into the HeroesComponent.
+  constructor(private messageService: MessageService) { }
 
-  constructor() { }
+//   sync call, can halt the service
+//   getHeroes() : Hero[] {
+//     return HEROES;
+// }
 
-  getHeroes() : Hero[] {
-    return HEROES;
-}
+  // of(HEROES) returns an Observable<Hero[]> that emits a single value,
+  // the array of mock heroes.
+  getHeroes() : Observable<Hero[]>{
+    const heroes = of(HEROES);
+    //calling another services
+    this.messageService.add('heroService : fetches Hero')
+    return  heroes;
+  }
+
+  // Like getHeroes(), getHero() has an asynchronous signature. It returns a
+  // mock hero as an Observable, using the RxJS of() function.
+
+  getHero(id: number){
+    const  hero = HEROES.find(h=> h.id ===id)!;
+    this.messageService.add(`HeroService : fetch Hero id=${id}`);
+    return of(hero);
+  }
+
+
 
 }

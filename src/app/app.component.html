@@ -1,29 +1,39 @@
-<div class="container">
-  <app-cookpit
-    (serverCreated)="onServerAdded($event)"
-    (bluePrintCreated)="onBlueprintAdded($event)"
-  ></app-cookpit>
-  <hr>
-  <div class="row">
-<!--    print all the server components-->
-<!--    [element]="elementServer" -> custom binding -->
+<!--<div class="container">-->
+<!--  <app-cookpit-->
+<!--    (serverCreated)="onServerAdded($event)"-->
+<!--    (bluePrintCreated)="onBlueprintAdded($event)"-->
+<!--  ></app-cookpit>-->
+<!--  <hr>-->
+<!--  <div class="row">-->
+<!--&lt;!&ndash;    print all the server components&ndash;&gt;-->
+<!--&lt;!&ndash;    [element]="elementServer" -> custom binding &ndash;&gt;-->
 
 
+<!--&lt;!&ndash;  *ngFor="let elementServer of serverElements"&ndash;&gt;-->
+<!--&lt;!&ndash;  [element]="elementServer"&ndash;&gt;-->
+
+<!--&lt;!&ndash;this is another way of getting element from another components&ndash;&gt;-->
+<!--<app-server-element-->
 <!--  *ngFor="let elementServer of serverElements"-->
-<!--  [element]="elementServer"-->
-
-<!--this is another way of getting element from another components-->
-<app-server-element
-  *ngFor="let elementServer of serverElements"
-  [servElement]="elementServer"
+<!--  [servElement]="elementServer"-->
 
 
 
-></app-server-element>
+<!--&gt;</app-server-element>-->
 
-  </div>
-</div>
+<!--  </div>-->
+<!--</div>-->
 
 <div class="container">
-  <app-entity></app-entity>
+<!--  routin link-->
+  <nav>
+    <a routerLink="/hero" >Go to Hero Page</a>
+    <br>
+
+    <a routerLink="/dashboard" >Go to DashBoard </a>
+  </nav>
+
+<!--  <app-entity></app-entity>-->
+  <router-outlet></router-outlet>
+  <app-message></app-message>
 </div>

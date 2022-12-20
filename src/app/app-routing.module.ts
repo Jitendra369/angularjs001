@@ -1,0 +1,36 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router'
+import { EntityComponent } from "./demo-app/entity/entity.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { HeroDetailsComponent } from "./demo-app/hero-details/hero-details.component";
+
+const routes : Routes =[
+  {
+    path : 'hero',
+    component : EntityComponent
+  },
+  {
+    path :'dashboard',
+    component : DashboardComponent
+  },
+  {
+    path :'',
+    redirectTo: '/dashboard',
+    pathMatch :'full'
+  },
+  {
+    //The colon : character in the path indicates that :id is a placeholder for a specific hero id.
+    path: 'detail/:id',
+    component : HeroDetailsComponent
+  }
+]
+
+@NgModule({
+  declarations: [],
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports :[ RouterModule ]
+})
+export class AppRoutingModule { }

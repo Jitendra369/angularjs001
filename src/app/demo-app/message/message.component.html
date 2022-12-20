@@ -1,0 +1,6 @@
+<!--only run when message[] array have some message -->
+<div *ngIf="messageService.message.length">
+  <h2>Message;</h2>
+  <button class="btn btn-primary" (click)="messageService.clearMessage()">Clear Message</button>
+<div *ngFor="let message of messageService.message" >{{message}}</div>
+</div>
